@@ -1,314 +1,628 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Trade With Mohit Agrawal</title>
-    <!-- Premium Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Modern Reset to completely eliminate scrolling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081b18">
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden; /* Strict no-scroll constraint */
-            background-color: #040811; 
-            font-family: 'Inter', sans-serif;
-        }
+<title>Mohit Agrawal | Research & Market Education</title>
+<meta name="description" content="Join Mohit Agrawal's research community for market research, equity insights and educational content.">
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at top right, rgba(0, 82, 212, 0.15), transparent 60%),
-                        radial-gradient(circle at bottom left, rgba(67, 198, 172, 0.08), transparent 50%),
-                        #050b18;
-        }
+<!-- META PIXEL -->
+<script>
+const META_PIXEL_ID = "YOUR_PIXEL_ID";
 
-        /* Screen Wrapper Optimized for iPhone & Android aspect ratios */
-        .app-container {
-            width: 100%;
-            max-width: 420px;
-            height: 100%;
-            padding: 24px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Dynamic height allocation */
-            position: relative;
-        }
+if (META_PIXEL_ID !== "YOUR_PIXEL_ID" && META_PIXEL_ID.trim() !== "") {
+  !function(f,b,e,v,n,t,s) {
+    if(f.fbq)return;
+    n=f.fbq=function() {
+      n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+    };
+    if(!f._fbq)f._fbq=n;
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+    n.queue=[];
+    t=b.createElement(e);
+    t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+  }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-        /* Top Brand Block */
-        .header-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+</script>
 
-        .logo-frame {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
 
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+:root {
+  --bg: #081b18;
+  --card: #102a25;
+  --green: #b9ed78;
+  --green-dark: #8acb55;
+  --white: #f5f8f3;
+  --muted: #a8b8af;
+  --border: rgba(255,255,255,.09);
+}
 
-        .brand-title {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .sebi-badge {
-            margin-top: 6px;
-            background: rgba(0, 184, 148, 0.1);
-            border: 1px solid rgba(0, 184, 148, 0.25);
-            color: #00b894;
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+body {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(91,151,103,.18), transparent 43%),
+    var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  padding: 24px 15px 35px;
+}
 
-        /* Main Dynamic Core Perks Window */
-        .perks-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 15px 0;
-        }
+.container {
+  width: 100%;
+  max-width: 730px;
+  margin: auto;
+}
 
-        .perk-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            transition: background 0.2s;
-        }
+.top-label {
+  text-align: center;
+  margin-bottom: 22px;
+}
 
-        .perk-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-            border: 1px solid rgba(255,255,255,0.02);
-        }
+.top-label span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(185,237,120,.25);
+  background: rgba(185,237,120,.07);
+  color: var(--green);
+  padding: 9px 16px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
-        .perk-details {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
+.dot {
+  height: 7px;
+  width: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+}
 
-        .perk-main {
-            color: #ffffff;
-            font-size: 13.5px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 38px 25px 31px;
+  border: 1px solid var(--border);
+  border-radius: 27px;
+  background: linear-gradient(145deg,#17362e,#0c211d 65%,#102a25);
+  box-shadow: 0 22px 70px rgba(0,0,0,.25);
+}
 
-        /* Call To Action Block Layout */
-        .action-container {
-            width: 100%;
-            text-align: center;
-        }
+.hero:before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -145px;
+  right: -100px;
+  border-radius: 50%;
+  background: rgba(185,237,120,.12);
+  filter: blur(35px);
+}
 
-        .subscribers-count {
-            font-size: 12px;
-            color: #64748b;
-            font-weight: 500;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
+.profile {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 20px;
+  padding: 4px;
+  border: 3px solid var(--green);
+  border-radius: 50%;
+  background: rgba(185,237,120,.12);
+  box-shadow: 0 0 28px rgba(185,237,120,.16);
+}
 
-        .pulse-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #22c55e;
-        }
+.profile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
-        .telegram-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #0088cc 0%, #0077b5 100%);
-            color: #ffffff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px;
-            border-radius: 18px;
-            font-size: 16px;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+.name {
+  font-size: clamp(24px,5vw,33px);
+  font-weight: 800;
+  letter-spacing: -.8px;
+  line-height: 1.3;
+}
 
-        .telegram-btn:active {
-            transform: scale(0.98);
-        }
+.role {
+  margin-top: 10px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+}
 
-        .telegram-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
+.intro {
+  max-width: 520px;
+  margin: 16px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
 
-        /* Bottom compliance / attribution structure */
-        .footer-area {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
+.headline {
+  margin-top: 30px;
+  font-size: clamp(28px,6vw,39px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
 
-        .disclaimer-text {
-            font-size: 9px;
-            color: #475569;
-            line-height: 1.4;
-            text-align: center;
-            padding: 0 10px;
-        }
+.headline span {
+  display: block;
+  color: var(--green);
+  margin-top: 6px;
+}
 
-        .powered-by {
-            font-size: 11px;
-            color: #475569;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: 500;
-            padding: 4px 10px;
-            transition: color 0.2s;
-        }
+.hero-text {
+  max-width: 500px;
+  margin: 15px auto 24px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
 
-        .powered-by strong {
-            color: #0088cc;
-            font-weight: 600;
-        }
+.join-btn {
+  width: 100%;
+  max-width: 420px;
+  min-height: 59px;
+  padding: 14px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(100deg,#c8f486,#8fd45c);
+  color: #112216;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(157,226,91,.17);
+  transition: .25s ease;
+}
 
-        .powered-by:hover {
-            color: #64748b;
-        }
-    </style>
+.join-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 35px rgba(157,226,91,.27);
+}
+
+.telegram-icon {
+  font-size: 21px;
+}
+
+.button-note {
+  margin-top: 12px;
+  color: #a7b8ad;
+  font-size: 11px;
+}
+
+.timer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.timer strong {
+  color: var(--green);
+  font-size: 16px;
+}
+
+.section {
+  margin-top: 23px;
+  padding: 26px 23px;
+  border: 1px solid var(--border);
+  border-radius: 23px;
+  background: rgba(16,42,37,.85);
+}
+
+.section-title {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+  margin-bottom: 9px;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.feature {
+  padding: 18px 15px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.035);
+}
+
+.feature-icon {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.feature h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.trust-item {
+  padding: 17px 8px;
+  text-align: center;
+  border-radius: 14px;
+  border: 1px solid rgba(185,237,120,.13);
+  background: rgba(185,237,120,.05);
+}
+
+.trust-icon {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.trust-item p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #d3dfd6;
+}
+
+.disclaimer {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.025);
+}
+
+.disclaimer h3 {
+  color: var(--green);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.disclaimer p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #a0b0a6;
+}
+
+.footer {
+  padding: 25px 10px 5px;
+  text-align: center;
+  color: #91a49a;
+  font-size: 11px;
+  line-height: 2;
+}
+
+.footer a {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media(max-width:480px) {
+  body {
+    padding: 15px 11px 25px;
+  }
+
+  .hero {
+    padding: 30px 17px 25px;
+    border-radius: 22px;
+  }
+
+  .section {
+    padding: 22px 16px;
+  }
+
+  .features {
+    gap: 9px;
+  }
+
+  .feature {
+    padding: 14px 11px;
+  }
+
+  .trust-grid {
+    gap: 7px;
+  }
+}
+
+@media(max-width:350px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="app-container">
-        
-        
-        <div class="header-section">
-            <div class="logo-frame">
-                <!-- Using logo.png directly as requested -->
-                <img src="logo.png" alt="Logo" class="logo-img">
-            </div>
-            <h1 class="brand-title">Trade With<br>Mohit Agrawal</h1>
-            <!-- SEBI Registration Content Insertion -->
-            <div class="sebi-badge">SEBI Registered (INH000011954)</div>
-        </div>
+<div class="container">
 
-        <!-- Scroll-Free Content Layout Grid -->
-        <div class="perks-list">
-            
-            <div class="perk-card">
-                <div class="perk-icon">📊</div>
-                <div class="perk-details">
-                    <span class="perk-main">Daily Intraday Index & Stock Option Calls</span>
-                </div>
-            </div>
+  <div class="top-label">
+    <span><i class="dot"></i> RESEARCH & MARKET EDUCATION</span>
+  </div>
 
-            <div class="perk-card">
-                <div class="perk-icon">📈</div>
-                <div class="perk-details">
-                    <span class="perk-main">Short-Term & Long-Term Trading Ideas</span>
-                </div>
-            </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
 
-            <div class="perk-card">
-                <div class="perk-icon">🎯</div>
-                <div class="perk-details">
-                    <span class="perk-main">Proper Advanced Entry & Exit Points</span>
-                </div>
-            </div>
+    <div class="profile">
+      <img src="logo.png" alt="Mohit Agrawal"
+      onerror="this.src='https://placehold.co/200x200/17372e/b9ed78?text=MA'">
+    </div>
 
-            <div class="perk-card">
-                <div class="perk-icon">🛡</div>
-                <div class="perk-details">
-                    <span class="perk-main">Effective Risk Management System</span>
-                </div>
-            </div>
+    <h1 class="name">MOHIT AGRAWAL</h1>
 
-        </div>
+    <p class="role">Research & Market Education</p>
 
-        <!-- Interactive Lower Action Control -->
-        <div class="action-container">
-            <div class="subscribers-count">
-                <div class="pulse-dot"></div>
-                485,000+ subscribers
-            </div>
-            
-            <!-- Telegram Action Configuration -->
-            <!-- ACTION REQUIRED: Paste your main channel destination URL inside the href attribute below -->
-            <a href="https://t.me" class="telegram-btn" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.47-.52-.17L7.69 13.38l-4.11-1.28c-.9-.28-.92-.9.19-1.33l16.1-6.2c.74-.27 1.39.17 1.15 1.16l-2.74 12.91c-.2.92-.75 1.15-1.52.72l-4.18-3.08-2.02 1.95c-.22.22-.41.41-.83.41z"/></svg>
-                Join Us On Telegram
-            </a>
-        </div>
+    <p class="intro">
+      Explore market research, equity insights and educational
+      resources designed to help you understand the financial markets.
+    </p>
 
-        <!-- Legal Notice & Custom Anchor Footer Group -->
-        <div class="footer-area">
-            <p class="disclaimer-text">
-                Risk Disclaimer: Investment in Securities market are subject to market risks. Read all documents carefully before investing.
-            </p>
-            
-            <!-- Powered by Snowads with your custom Telegram link redirect integration -->
-            <!-- ACTION REQUIRED: Paste your custom tracking/agency Telegram redirect link inside the href attribute below -->
-            <a href="https://t.me" class="powered-by" target="_blank">
-                Powered by <strong>Snowads</strong>
-            </a>
-        </div>
+    <h2 class="headline">
+      Learn. Research.
+      <span>Understand Markets.</span>
+    </h2>
+
+    <p class="hero-text">
+      Join the research community to access market observations,
+      educational insights and research-related updates.
+    </p>
+
+    <a href="#" class="join-btn" id="telegramBtn">
+      <span class="telegram-icon">➤</span>
+      JOIN RESEARCH COMMUNITY — FREE
+    </a>
+
+    <p class="button-note">
+      Join our Telegram community for research and educational updates.
+    </p>
+
+    <div class="timer">
+      <span>Automatic redirect in</span>
+      <strong id="countdown">30</strong>
+      <span>seconds</span>
+    </div>
+
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="section">
+
+    <h2 class="section-title">What You Get Inside</h2>
+
+    <p class="section-subtitle">
+      Explore educational resources and research-related information
+      to develop a better understanding of financial markets.
+    </p>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <h3>Research & Market Analysis</h3>
+        <p>
+          Research coverage and market observations
+          on selected companies and sectors.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <h3>Understanding Options Markets</h3>
+        <p>
+          Learn options market concepts and understand
+          how different instruments work.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <h3>Educational Content</h3>
+        <p>
+          Explore market explainers, learning resources
+          and educational discussions.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Market Insights</h3>
+        <p>
+          Follow market developments, sector observations
+          and research-related updates.
+        </p>
+      </div>
 
     </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="section">
+
+    <h2 class="section-title">Explore The Research Community</h2>
+
+    <p class="section-subtitle">
+      A place to explore market research and educational
+      information in one community.
+    </p>
+
+    <div class="trust-grid">
+
+      <div class="trust-item">
+        <div class="trust-icon">📖</div>
+        <p>Market<br>Education</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🔎</div>
+        <p>Research<br>Insights</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🌐</div>
+        <p>Online<br>Community</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- REGISTRATION DETAILS -->
+  <!-- Add actual registration details only after client verification -->
+  <section class="section">
+    <h2 class="section-title">Research Information</h2>
+    <p class="section-subtitle">
+      Please verify the research provider's identity,
+      registration status and applicable disclosures independently
+      before relying on any research service.
+    </p>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+
+    <h3>Important Risk Disclosure</h3>
+
+    <p>
+      Investments in securities are subject to market risks.
+      The content shared through this community is intended
+      for educational and informational purposes only and
+      should not be considered a guarantee of returns or
+      personalized investment advice. No profits or investment
+      outcomes are assured. Please conduct your own research
+      and consult an appropriately qualified professional
+      before making investment decisions.
+    </p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <p>© <span id="year"></span> MOHIT AGRAWAL</p>
+    <p>All Rights Reserved.</p>
+
+    <p>
+      Website Managed by
+      <a href="https://YOUR-AGENCY-LINK.com"
+         target="_blank" rel="noopener noreferrer">
+        Snow Ads Agency
+      </a>
+    </p>
+
+  </footer>
+
+</div>
+
+<script>
+
+/* =================================
+   EDIT THESE SETTINGS
+================================= */
+
+const TELEGRAM_LINK = "https://t.me/YOUR_CLIENT_TELEGRAM";
+const AGENCY_LINK = "https://YOUR-AGENCY-LINK.com";
+const REDIRECT_SECONDS = 30;
+
+/* =================================
+   TELEGRAM BUTTON
+================================= */
+
+const telegramBtn = document.getElementById("telegramBtn");
+
+telegramBtn.href = TELEGRAM_LINK;
+
+telegramBtn.addEventListener("click", function() {
+  if (typeof fbq === "function") {
+    fbq("trackCustom", "TelegramJoinClick");
+  }
+});
+
+/* =================================
+   AGENCY LINK
+================================= */
+
+document.querySelector(".footer a").href = AGENCY_LINK;
+
+/* =================================
+   COUNTDOWN REDIRECT
+================================= */
+
+let remaining = REDIRECT_SECONDS;
+const countdown = document.getElementById("countdown");
+
+const timer = setInterval(function() {
+
+  remaining--;
+  countdown.textContent = remaining;
+
+  if (remaining <= 0) {
+    clearInterval(timer);
+
+    if (TELEGRAM_LINK !== "https://t.me/YOUR_CLIENT_TELEGRAM") {
+      window.location.href = TELEGRAM_LINK;
+    }
+  }
+
+}, 1000);
+
+/* =================================
+   FOOTER YEAR
+================================= */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
